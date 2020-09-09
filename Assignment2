@@ -79,13 +79,72 @@ f) Reversing a string
 
 1. Write a script To check given year is leap or not.
 ----------------------->
+	echo "Enter year : "
+	read yr
+	if [ $((yr % 4)) -eq 0 ]
+	then
+		if [ $((yr%100)) -eq 0 ]
+		then
+			if [ $((yr%400)) -eq 0 ]
+			then
+				echo "leap year!!!!"
+			else
+				echo "Not a leap year..."
+			fi
+		else
+			echo "It's a Leap year...."
+		fi
+	else
+		echo "Not a leap year...."
+	fi
 
 
 ============================================================================================================================================================================
 2. Write a script to print day of the week using
-	a) elif	b) case 
+	a) elif	b) case
+------------------------>
+using case
+-----------
+echo "Enter day in [1-7] : "
+read wday
+	case $wday in
+		1)echo "its sunday";;
+		2)echo "its monday";;
+		3)echo "its tuesday";;
+		4)echo "its wednesday";;
+		5)echo "its thursday";;
+		6)echo "its friday";;
+		7)echo "its saturday";;
+		*)echo "Invalid";;
+	esac
+
+using elif
+-----------
+	echo "Enter day in[1-7] : "
+	read wday
+	if [ $wday == 1 ]; then
+	       echo "its sunday...."
+	elif [ $wday == 2 ]; then
+		echo "its monday..."
+	elif [ $wday == 3 ];then
+		echo "its tuesday..."
+	elif [ $wday == 4 ];then
+		echo "its wednesday..."
+	elif [ $wday == 5 ];then
+		echo "its thursday..."
+	elif [ $wday == 6 ];then
+		echo "its friday... "
+	elif [ $wday == 7 ];then
+		echo "Its saturday..."
+	else
+		echo "Invalid option........."
+	fi
+
+===================================================================================================================
 3. a) Write a script to find biggest of three no.s
    b) To find avg of 3 no.s, read no.s from keyboard
+----------------->
+
 4. Write a program to check wahether given no.is even or odd
 5. Write a program to print calendar of current month in next year,previous years.
 	For eg:-sep 2014,sep 2012 if current month is sep 2013	
