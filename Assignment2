@@ -38,32 +38,50 @@ f) Reversing a string
 
 ==========================================================================================================================================================================
 3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+----------------------------->
+	a=1
+	for i in d*.txt
+	do
+		echo "$i"
+		mv $i $a".txt"
+		a=`expr $a + 1`
+	done
+
+
 
 
 ============================================================================================================================================================================
+
 4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+----------------->
+	echo "Directory Path : "$HOME
+	echo "Path command : $PATH"
+	echo "SHELL command : $SHELL"
+	echo "History command : $HISTORY"
+	echo "Logname command : $LOGNAME"
+	echo "Term command : $TERM"
+	
+=============================================================================================================================================================================
 
 5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+------------------------>
+
 
 6. Write a shell script to print all files permissions and name of file
 
+
 7.Write a shell script to print all files name and size greater than 5K
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------->
+	echo "command : -type f -name '*.sh' -size +5k -ls"
+	find -type f -name "*.sh" -size +0k -ls
+===========================================================================================================================================================================
 ============================================================================================================================================================================
 
 1. Write a script To check given year is leap or not.
+----------------------->
+
+
+============================================================================================================================================================================
 2. Write a script to print day of the week using
 	a) elif	b) case 
 3. a) Write a script to find biggest of three no.s
