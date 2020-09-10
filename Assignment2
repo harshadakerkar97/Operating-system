@@ -196,20 +196,73 @@ b)
 	fi
 
 
-================================================================================================================
+============================================================================================================================================================================
 5. Write a program to print calendar of current month in next year,previous years.
 	For eg:-sep 2014,sep 2012 if current month is sep 2013	
 ----------------------->
 
 
-
+============================================================================================================================================================================
 6. Write a program to find sum and product of two no.s using 
 	a) let 
 	b)expr
 	c)bc	
+----------------------->
+	echo "Using let command.........."
+	let "var1=5"
+	let "var2=7"
+	let "var3=var1+var2";
+	echo $var3
+
+	echo "Using expr command............."
+	var5=`expr $var1 + $var3`
+	echo $var5
+	echo "Using bc command..............."
+	echo "10^2" | bc
+	
+============================================================================================================================================================================
 7. Write a script to generate Fibonacci series.
+------------------------->
+	echo "Enter limit : "
+	read num
+	f1=0
+	f2=1
+	echo "Fibonacci series of $num terms is : "
+	for((i=0;i<num;i++))
+	do
+		echo "$f1 "
+		sum=$((f1+f2))
+		f1=$f2
+		f2=$sum
+	done
+	echo "-----------------------------------------"
+
+
+=============================================================================================================================================================================
 8. Write a shell script to reverse the single strings. 
+------------------------>
+	echo "enter string : "
+	read str
+	copy=$str
+	len=${#copy}
+	echo "Length of string is : $len"
+	echo "Reverse string ---------"
+	rev=""
+	for(( i=$len-1 ; i >=0 ;--i ))
+	do
+	#       echo ${str[$i]}
+		rev="$rev${str:$i:1}"
+	#       echo "${str:$i:1}"
+	done
+	echo "Reverse string : $rev"
+
+==============================================================================================================================================================================
 9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+--------------------------->
+
+
+
+==============================================================================================================================================================================
 10. Write a shell script to print the reverse of an input number.
 
 
