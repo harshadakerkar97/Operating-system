@@ -35,6 +35,8 @@ f) Reversing a string
                 echo "string are different"
         fi
         echo "----------------------------"
+	echo "reverse string : str | rev "
+
 
 ==========================================================================================================================================================================
 3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
@@ -259,7 +261,20 @@ b)
 ==============================================================================================================================================================================
 9.Write a shell script to reverse the list of strings and reverse each string further in the list.
 --------------------------->
-	
+	read -p "Enter size of string :" n
+	arr=();
+	arr1=();
+	for (( i=0;i<n;i++ ))
+	do
+		read -p "Enter $i th String : " arr[$i]
+		#read arr[$i]
+		#revstr=${arr[i]} | rev
+		#$arr1[$i]=( $arr[@] $revstr )
+	done
+
+	echo "list : ${arr[@]}"
+	#arr1=${arr[@]}
+	echo "${arr[@]}" | rev
 	
 
 ==============================================================================================================================================================================
@@ -290,38 +305,18 @@ Contain both alphabet and number.
 Include both the small and capital case letters.
 If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
 ---------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	echo "enter password : "
+	read pass
+	len=${#pass}
+	echo $len
+	if [ $len -gt 8 ];then
+	echo $pass | grep "[A-Z]" | grep "[a-z]" | grep "[0-9]" | grep "[@#$^&*]"
+	if [[ $? -ne 0 ]];then
+		echo "weak password"
+	else
+		echo "ok"
+	fi
+	else
+		echo "Weak password"
+	fi
+===============================================================================================================================================================================H
