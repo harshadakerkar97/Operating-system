@@ -72,6 +72,7 @@ D)Remove previously created directory a , b and c.
         nano file.txt
     C]  touch f1.txt f2.txt f3.txt f4.txt f5.txt
     D]  rm f1.txt f2.txt f3.txt f4.txt f5.txt
+        rmdir a b c
 
 
 Q4. Create a file with some content using vi editor
@@ -102,14 +103,137 @@ e) Recursive display contents of your home directory.
           cat list1.txt | sort -r
       d]  touch -a list1.txt
           stat list1.txt
+          
+          touch -t 202009232359.59 list1.txt
+          stat list1.txt
+          touch -a list1.txt
+          
       c]  mkdir .hiddenDirectory
           to check ls -a
 
       e]  ls -r
 
+Create directory of your name and then create 4 files inside it named a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+only user and also files permission to only user such that
+ -------------------->
+a)user can read and write the file a.txt and b.txt
+		mkdir ques1
+		cd ques1
+		chmod 700 ques1
+		chmof 600 a.txt b.txt
+b)user can write the file c.txt
+	chmod 200 c.txt
+c)user can exectuable the file d.sh. Make
+Contents of file d.sh:
+#/bin/sh
+ls -lh
+	chmod 100 d.sh
+  
+Q2. Change the permission of the previous directory to executable only.	Analyze the output.
+--------------------->
+	chmod 100 ques1
+	
+Q3. Change the permission of the previous directory to read only.
+--------------------->
+	chmod 400 ques1
 
+@4. Use echo to list the all files of your home directory.
+--------------------->
+	echo *
 
+Q5. Use echo to list the all files of /etc/ directory
+---------------------->
+	echo * /etc/
 
+Q7. Use echo to append your name to a.txt
+----------------------->
+	echo harshada > a.txt
+
+=======================================================================================================================
+Note:Many operation might not work.Analyze them
+1.Create Three level nested directory a,b and c
+------------->
+		mkdir a
+		cd a
+		mkdir b
+		cd b
+		mkdir c
+		
+a)Create at least one hidden file in each directory
+-------------->
+		cd .hiddenfile.txt
+		
+b)Create at least one normal text file in each directory
+------------->
+		touch a.txt
+c)Copy c into a
+-------------->
+		cp -r c a
+d)Copy file inside a into b
+---------------->
+		cp -r a b
+2.	Change the third level directory c permission to read only
+------------->
+		chmod 444 c
+3.	Try copying third level c directory to outside of a
+-------------->		
+		cp -r a/b/c a
+4.	Create the directory  “data“ inside b
+--------------->
+		mkdir a/b/data
+	
+5.	Change the permission of b to read and write only
+---------------->
+		chmod 666 a/b
+6.	Create directory “data2”  inside b
+--------------->
+		mkdir a/b/data2
+		"PERMISSION DENIED"
+
+7.	Create data.txt file inside b
+--------------->
+		touch a/b/data.txt
+		"PERMISSION DENIED"
+8.	Rename the second level directory c to copied_dir
+--------------->
+		mv c copied_dir
+9.	Change permission of copied_dir to only executable
+---------------->
+		chmod 111 a/copied_dir
+10.	Try ls on copied_dir
+----------------->
+		ls
+		"PERMISSION DENIED"
+11.	Try moving copied_dir to outside of a
+------------------>
+		mv home/harshada97/Assignment1/a/c  home/harshada97
+12.	Try moving data directory outside of a
+------------------->
+		mv home/harshada97/Assignment1/a/c/data  home/harshada97
+		"PERMISSION DENIED"
+13.	Now change the owner of the directory a to root
+-------------------->
+		 sudo chown root a
+		[sudo] password for harshada97:
+14.	Change permission of a to read write and executable to only user
+---------------------->
+
+15.	Try creating directory sample inside a
+--------------------->
+		mkdir a/sample
+
+16.	Create directory x outside a
+
+17.	Try moving x inside a
+18.	Create directory movies
+19.	Change group of movies to sudo
+20.	Change group of movies to avahi
+21.	Try changing permission after changing ownership to root
+22.	Try Changing permission after changing group to sudo without sudo
+23.	Try Changing owner and group both to root
+24.	Try changinging permission
+25.	Try deleting the file
+		rm file.txt
 
 
 
